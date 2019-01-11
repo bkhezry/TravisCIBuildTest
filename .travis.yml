@@ -25,7 +25,8 @@ deploy:
     secure: RKk+IyPvMRbC9Ki4tq/W12XkmEWCdVbRmBd7xJyaQY3IC8QSe97VrNyTkOyFsGCcvue9PJUFmhFyGbdZnAwT79qr7lGer0hWFYGn1+FIGQRNEipXpG80Dosex9mFN94FbdIGndKKQeUjwIEwa1a2xcR6V1BOtFWrefK3sXl1XNHlbmgfEOEBM8or2ZTWd991jc29Tq3YsNzh9gKjw/j7+iiHwXKF+iEchq1R6KD5pQRU31seWVp9zrStF7n7GRHvhJNdwAzUd+2I0i97wG+UcUdoWMAGKtzdXAzo75QCfxDrE3kTwgJT2jiXDTqXnmw+LbCePhluXVOC99OxJiaPqfM+jG+1/R+IKd17qJEDuf6jMPFVrDeUilbAyHr4b+sShEPoJu5Nnm1tFj/MkDjY7e/TO+Uq/yw/AxOpAh7lShz/hreCkQkvJxDVRK2NInE1Yrn5SaUX1JFH0CjgExbF8otWFaBn9+5LPSfCQhUOFMDnM0zjgY4O++JLZWDnsYUY+7JzYUarV4Kyf7AtYFZCaNL36JZvtqrNq75QimdiJ6v43rs+O4crV85HmQAp/7ies4n6PUt78ksa7nAhXpCutv9odohzMV+9y9QbPabWj/yo7zIDFHXY4WUVBp1DP2WI7DlyvRqWTt2Bf2TTR5DNcb1bDo5aMtChHnekUvBM8Is=
   file: app/build/outputs/apk/release/*.apk
   on:
-    tags: true
-    all_branches: true
     repo: bkhezry/TravisCIBuildTest
+    only:
+      - master
+      - /v\d+\.\d+[a-z]/
 
