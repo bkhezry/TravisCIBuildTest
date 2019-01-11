@@ -2,21 +2,25 @@ language: android
 jdk: oraclejdk8
 android:
   components:
-    - tools
-    - platform-tools
-    - build-tools-28.0.3
-    - android-28
+  - tools
+  - platform-tools
+  - build-tools-28.0.3
+  - android-28
   licenses:
-    - '.+'
+  - ".+"
 before_install:
-    - yes | sdkmanager "platforms;android-28"
-    - yes | sdkmanager "build-tools;28.0.3"
-    
+- yes | sdkmanager "platforms;android-28"
+- yes | sdkmanager "build-tools;28.0.3"
 sudo: required
 install: true
-
 before_script:
-  - chmod +x gradlew
-
+- chmod +x gradlew
 script:
-- ./gradlew assembleRelease --stacktrace
+- "./gradlew assembleRelease --stacktrace"
+deploy:
+  provider: releases
+  api_key:
+    secure: xteFDVj9WgDfb4S2303FCUqkvuWvWraEo8I0/xqS2o1C01+QM451DqsmGePgVSOWstqqHv55QMBzGQcmfmeT2/Ilk5pW7cJnS6OFd0EoFqcS/8uhhYN6bay8+RVR7fM/+IdKj5Mykw4KIVCRNh4ijRdwtGC0dFfdBiyLjbAmssnlcbLSV/4IwPxYnOE35S6JISsk+erIKEnVcmseAV/s5EOMBYURLi++auR8G0f2cLStVdBntHis7VrNzdG0gqyorKC/jYPjcJ1pZGhqYFD4i+DxoCg7G8bhV3Ny/9KgVaAQMoxtTolYciG8g6dshjXUw2B3NZekUIUUpkOtY9zzNrzZ6+xeqTeFvXPLB6ZrsRkf7IPOihugu/1utJ0RLFWhf3whlmqgFdJco2xOYqaowTvPMhdhNtruxCX4m1H2O8boPf6QyOBM8eabnEX9sWKnMRpx5uOwEj+9jlE37c05nTDP2bF2MXQYSVxmXy0xqGjUcBGO+vQ0LhUQ3jOOrFHjJlz6kZX3BcmYKKcr9TMawt9HhBkmxB8HoyKmJALKMWRecM9G2X3G/J6ICp77CQE+zeRuDwo/B/d2Kx9aX1KnEo75QeRklvaFlJHw0/QJ8IDQfQqGXB6h0rDdgP7wHRaFSX6KQm8BvqzDbMM+1B+lFF80O8h49pbuHkV1+p1wzCM=
+  file: app/release/app-release.apk
+  on:
+    repo: bkhezry/TravisCIBuildTest
